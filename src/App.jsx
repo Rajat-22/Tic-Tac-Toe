@@ -3,7 +3,9 @@ function App() {
   
 
   return (
-    <h1>React Tic-Tac-Toe</h1>
+    <div>
+  <h1> Tic-Tac-Toe Game Start</h1>
+    </div>
   )
 }
 
