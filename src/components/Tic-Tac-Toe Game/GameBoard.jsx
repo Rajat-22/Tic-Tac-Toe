@@ -1,6 +1,8 @@
+import styles from "./TicTacToe.module.css";
+ 
 export default function GameBoard({ onSelectSquare, board }) {
   return (
-    <ol id="game-board">
+    <ol className={styles.gameBoard}>
       {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>

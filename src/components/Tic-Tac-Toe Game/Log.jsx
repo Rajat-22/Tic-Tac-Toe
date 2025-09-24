@@ -1,6 +1,8 @@
+import styles from "./TicTacToe.module.css";
+
 export default function Log({turns}){
     return (
-        <ol id='log'>
+        <ol className={styles.log}>
         {
             turns.map((turn) => (
                 <li key={`${turn.square.row}${turn.square.col}`}>

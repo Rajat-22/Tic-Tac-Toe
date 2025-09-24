@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./TicTacToe.module.css";
 
 export default function Player({ name, symbol, isActive, onNameChange }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -14,17 +15,17 @@ export default function Player({ name, symbol, isActive, onNameChange }) {
     setPlayerName(e.target.value);
   }
 
-  let editablePlayerName = <span className="player-name">{playerName}</span>;
+  let editablePlayerName = <span className={styles.playerName}>{playerName}</span>;
   if (isEditing) {
     editablePlayerName = (
       <input type="text" value={playerName} onChange={handleNameChange}></input>
     );
   }
   return (
-    <li className={isActive ? "active" : undefined}>
-      <span className="player">
+    <li className={isActive ? styles.active : undefined}>
+      <span className={styles.player}>
         {editablePlayerName}
-        <span className="player-symbol">{symbol}</span>
+        <span className={styles.playerSymbol}>{symbol}</span>
       </span>
       <button onClick={handleEdit}>{isEditing ? "Save" : "Edit"}</button>
     </li>

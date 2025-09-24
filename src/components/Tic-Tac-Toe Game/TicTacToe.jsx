@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./TicTacToe.css";
+import styles from "./TicTacToe.module.css";
 import Player from "./Player.jsx";
 import GameBoard from "./GameBoard.jsx";
 import GameOver from "./GameOver.jsx";
@@ -101,8 +101,8 @@ export default function TicTacToe({ children }) {
         <img src="/game-logo.png" alt="Hand drawn tic-tac-toe game." />
         <h1>Tic-Tac-Toe</h1>
       </header>
-      <div id="game-container">
-        <ol id="players" className="highlight-player">
+      <div className={styles.gameContainer}>
+        <ol className={`${styles.players} ${styles.highlightPlayer}`}>
           <Player
             name={PLAYERS.X}
             symbol="X"
