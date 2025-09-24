@@ -97,31 +97,37 @@ export default function TicTacToe({ children }) {
   }
   return (
     <>
-      <header>
-        <img src="/game-logo.png" alt="Hand drawn tic-tac-toe game." />
-        <h1>Tic-Tac-Toe</h1>
-      </header>
-      <div className={styles.gameContainer}>
-        <ol className={`${styles.players} ${styles.highlightPlayer}`}>
-          <Player
-            name={PLAYERS.X}
-            symbol="X"
-            isActive={activeplayer === "X"}
-            onNameChange={handlePlayerNameChange}
+      <div className={styles.body}>
+        <header className={styles.header}>
+          <img
+            className={styles.headerImg}
+            src="/game-logo.png"
+            alt="Hand drawn tic-tac-toe game."
           />
-          <Player
-            name={PLAYERS.O}
-            symbol="O"
-            isActive={activeplayer === "O"}
-            onNameChange={handlePlayerNameChange}
-          />
-        </ol>
-        {(winner || hasDrawn) && (
-          <GameOver winner={winner} onRematch={handleRestart} />
-        )}
-        <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
+          <h1 className={styles.h1}>Tic-Tac-Toe</h1>
+        </header>
+        <div className={styles.gameContainer}>
+          <ol className={`${styles.players} ${styles.highlightPlayer}`}>
+            <Player
+              name={PLAYERS.X}
+              symbol="X"
+              isActive={activeplayer === "X"}
+              onNameChange={handlePlayerNameChange}
+            />
+            <Player
+              name={PLAYERS.O}
+              symbol="O"
+              isActive={activeplayer === "O"}
+              onNameChange={handlePlayerNameChange}
+            />
+          </ol>
+          {(winner || hasDrawn) && (
+            <GameOver winner={winner} onRematch={handleRestart} />
+          )}
+          <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
+        </div>
+        <Log turns={gameTurns} />
       </div>
-      <Log turns={gameTurns} />
     </>
   );
 }
