@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./TicTacToe.css";
 import Player from "./Player.jsx";
 import GameBoard from "./GameBoard.jsx";
 import GameOver from "./GameOver.jsx";
