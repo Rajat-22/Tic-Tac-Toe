@@ -7,14 +7,14 @@ function App() {
     <Router>
       <nav>
         <Link to="/tic-tac-toe" style={{ margin: "0 1rem" }}>Tic Tac Toe</Link>
-        {/* <Link to="/play-pause" style={{ margin: "0 1rem" }}>Play & Pause</Link> */}
+        <Link to="/play-pause" style={{ margin: "0 1rem" }}>Play & Pause</Link>
       </nav>
 
       <Routes>
         <Route path="/" element={<Navigate to="/tic-tac-toe" replace />} />
 
         <Route path="/tic-tac-toe" element={<TicTacToe />} />
-        {/* <Route path="/play-pause" element={<PausePlay />} /> */}
+        <Route path="/play-pause" element={<PausePlay />} />
 
         <Route path="*" element={<h2 className="fallback">Select a game above</h2>} />
       </Routes>
