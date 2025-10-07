@@ -282,6 +282,21 @@
     font-size: 2.2rem;
     padding: 0.5rem;
   }
+
+  .gameOver h2 {
+    font-size: 2.8rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .gameOver p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .gameOver button {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
 
 /* For mobile */
@@ -340,11 +355,26 @@
     gap: 0.5rem;
   }
 
-  .gameBoard button {
+   .gameBoard button {
     width: 3rem;
     height: 3rem;
     font-size: 1.1rem;
     padding: 0.2rem;
+  }
+
+  .gameOver h2 {
+    font-size: 2rem;
+    margin: 0 0 0.8rem 0;
+  }
+
+  .gameOver p {
+    font-size: 1.2rem;
+    margin: 0.4rem 0;
+  }
+
+  .gameOver button {
+    font-size: 1rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 
