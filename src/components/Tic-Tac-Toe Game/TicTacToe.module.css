@@ -18,6 +18,10 @@
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 
+.header {
+  text-align: center;
+}
+
 .h1 {
   font-family: 'Caprasimo', cursive;
   font-size: 3rem;
@@ -116,82 +120,6 @@
   color: #e1dec7;
 }
 
-/* For tablets */
-@media (max-width: 768px) {
-  .gameContainer {
-    max-width: 90%;   /* shrink width */
-    padding: 1.5rem;
-    margin: 2rem auto;
-  }
-
-  .players {
-    gap: 1rem;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .players li {
-    width: 100%;
-    justify-content: space-between;
-    padding: 0.5rem 0.5rem;
-  }
-
-  .playerName, .player input {
-    width: 100%;
-    font-size: 0.95rem;
-    padding: 0.4rem;
-  }
-
-  .playerSymbol {
-    margin-left: 0.5rem;
-    font-size: 0.95rem;
-  }
-
-  .players button {
-    width: 2.5rem;
-    font-size: 0.8rem;
-    padding: 0.4rem 0.2rem;
-  }
-}
-
-/* For mobile */
-@media (max-width: 480px) {
-  .gameContainer {
-    max-width: 95%;   /* almost full width */
-    padding: 1rem;
-    margin: 1rem auto;
-    border-radius: 4px;
-  }
-
-  .players {
-    gap: 0.5rem;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .players li {
-    width: 100%;
-    padding: 0.3rem 0.2rem;
-  }
-
-  .playerName, .player input {
-    width: 100%;
-    font-size: 0.85rem;
-    padding: 0.3rem;
-  }
-
-  .playerSymbol {
-    margin-left: 0.3rem;
-    font-size: 0.85rem;
-  }
-
-  .players button {
-    width: 2rem;
-    font-size: 0.7rem;
-    padding: 0.3rem 0.1rem;
-  }
-}
-
 .gameBoard {
   display: flex;
   flex-direction: column;
@@ -222,40 +150,6 @@
   padding: 1rem;
   transition: all 0.2s;
 }
-
-@media (max-width: 768px) {
-  .gameBoard {
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-  .gameBoard ol {
-    gap: 1rem;
-  }
-  .gameBoard button {
-    width: 5rem;
-    height: 5rem;
-    font-size: 2.2rem;
-    padding: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .gameBoard {
-    gap: 0.5rem;
-    margin: 1rem 0;
-  }
-  .gameBoard ol {
-    gap: 0.5rem;
-  }
-  .gameBoard button {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.1rem;
-    padding: 0.2rem;
-  }
-}
-
-
 
 .gameOver {
   position: absolute;
@@ -324,6 +218,134 @@
 .log li.highlighted {
   background-color: #3f3b00;
   color: white;
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .headerImg {
+    width: 6rem;
+    margin: 2rem auto 0.5rem auto;
+  }
+
+  .h1 {
+    font-size: 2.2rem;
+    margin: 0 auto 2rem auto;
+  }
+
+  .gameContainer {
+    max-width: 90%;   /* shrink width */
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .players {
+    gap: 1rem;
+    /* flex-direction: column; */
+    align-items: stretch;
+  }
+
+  .players li {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .playerName, .player input {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.4rem;
+  }
+
+  .playerSymbol {
+    margin-left: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .players button {
+    width: 2.5rem;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.2rem;
+  }
+
+   .gameBoard {
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .gameBoard ol {
+    gap: 1rem;
+  }
+
+  .gameBoard button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.2rem;
+    padding: 0.5rem;
+  }
+}
+
+/* For mobile */
+@media (max-width: 480px) {
+  .headerImg {
+    width: 4rem;
+    margin: 1.5rem auto 0.3rem auto;
+  }
+
+  .h1 {
+    font-size: 1.8rem;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .gameContainer {
+    max-width: 95%;   /* almost full width */
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 4px;
+  }
+
+  .players {
+    gap: 0.5rem;
+    /* flex-direction: column; */
+    align-items: stretch;
+  }
+
+  .players li {
+    width: 50%;
+    padding: 0.3rem 0.2rem;
+  }
+
+  .playerName, .player input {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 0.3rem;
+  }
+
+  .playerSymbol {
+    margin-left: 0.3rem;
+    font-size: 0.85rem;
+  }
+
+  .players button {
+    width: 2rem;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.1rem;
+  }
+
+   .gameBoard {
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .gameBoard ol {
+    gap: 0.5rem;
+  }
+
+  .gameBoard button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    padding: 0.2rem;
+  }
 }
 
 @keyframes slide-in-from-left {
