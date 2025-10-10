@@ -1,19 +1,33 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import styles from './Quiz.module.css'
 import QUESTIONS from './questions.js'
 import QuestionTimer from './QuestionTimer.jsx'
+import Answers from  './Answers.jsx'
 
 
 export default function Quiz() {    
    const [userAnswer, setUserAnswer] = useState([])
-   const activeQuestion = userAnswer.length
+   const [answerState, setAnswerState] = useState('')
+
+   const activeQuestion = answerState === '' ? userAnswer.length : userAnswer.length - 1
    const quizComplete = activeQuestion === QUESTIONS.length
 
    const handleSelectAnswer = useCallback(function handleSelectAnswer(selectedAnswer){
+    setAnswerState('answered')
       setUserAnswer((prevAnswers) => {
         return [...prevAnswers, selectedAnswer]
       })
-   }, [])
+      setTimeout(() => {
+        if(selectedAnswer ===  QUESTIONS[activeQuestion].answers[0]){
+            setAnswerState('correct')
+        }else {
+            setAnswerState('wrong')
+        }
+        setTimeout(() => {
+            setAnswerState('')
+        }, 2000);
+      }, 1000);
+   }, [activeQuestion])
    
 
    const handleSkipAnswer = useCallback( () => handleSelectAnswer(null), [handleSelectAnswer])
@@ -28,26 +42,26 @@ export default function Quiz() {
         </div>
     )
    }
+ 
 
-    const shuffledAnswers = [...QUESTIONS[activeQuestion].answers]
-   shuffledAnswers.sort(() => Math.random() - 0.5)
-   
   return (
    <div className={styles.quiz}>
    <div className={styles.question}>
-    <QuestionTimer key={activeQuestion}
+    <QuestionTimer key={`activeQuestion_${activeQuestion}`}
     timeout={10000} 
     onTimeout={handleSkipAnswer} 
     />
+
        <h2>{QUESTIONS[activeQuestion].text}</h2>
+
+        <Answers 
+        key={activeQuestion}
+        answers={QUESTIONS[activeQuestion].answers}
+        selectedAnswer={userAnswer[userAnswer.length - 1]}
+        answerState={answerState}
+        onSelect={handleSelectAnswer}
+         />
    </div>
-   <ul className={styles.answers}>
-         {shuffledAnswers.map((answer) => (
-            <li key={answer} className={styles.answer}>
-                <button onClick={() => handleSelectAnswer(answer)}>{answer}</button>
-            </li>
-         ))}
-   </ul>
    </div>
   );
 }
