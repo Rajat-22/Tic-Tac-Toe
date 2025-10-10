@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './Quiz.module.css'
 
-export default function QuestionTimer({ timeout, onTimeout }) {
+export default function QuestionTimer({ timeout, onTimeout, mode }) {
     const [remainingTime, setRemainingTime] = useState(timeout);
     // const intervalRef = useRef(null);
 
@@ -9,7 +9,7 @@ export default function QuestionTimer({ timeout, onTimeout }) {
        const timeOut = setTimeout(() =>{
             onTimeout()
         }, timeout)
-        
+
        return () => clearTimeout(timeOut)
     }, [timeout, onTimeout])
 
@@ -22,7 +22,7 @@ export default function QuestionTimer({ timeout, onTimeout }) {
     }, [])
 
     return <progress 
-               className={styles.question}
+               className={`${styles.question} ${styles[mode]}`}
                max={timeout}
                value={remainingTime}  />
 }

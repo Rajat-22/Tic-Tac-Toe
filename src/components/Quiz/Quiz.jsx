@@ -27,7 +27,7 @@ export default function Quiz() {
         setTimeout(() => {
             setAnswerState('')
         }, 2000);
-        
+
       }, 1000);
    }, [activeQuestion])
    
@@ -49,8 +49,9 @@ export default function Quiz() {
   return (
    <div className={styles.quiz}>
    <div className={styles.question}>
-    <QuestionTimer key={`activeQuestion_${activeQuestion}`}
-    timeout={10000} 
+    <QuestionTimer mode={answerState}
+    key={`activeQuestion_${activeQuestion}`}
+    timeout={15000} 
     onTimeout={handleSkipAnswer} 
     />
 
