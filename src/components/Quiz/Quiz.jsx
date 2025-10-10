@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import styles from './Quiz.module.css'
 import QUESTIONS from './questions.js'
+import QuestionTimer from './QuestionTimer.jsx'
+
+
 export default function Quiz() {    
    const [userAnswer, setUserAnswer] = useState([])
    const activeQuestion = userAnswer.length
    const quizComplete = activeQuestion === QUESTIONS.length
 
-   function handleSelectAnswer(selectedAnswer){
+   const handleSelectAnswer = useCallback(function handleSelectAnswer(selectedAnswer){
       setUserAnswer((prevAnswers) => {
         return [...prevAnswers, selectedAnswer]
       })
-   }
+   }, [])
+   
+
+   const handleSkipAnswer = useCallback( () => handleSelectAnswer(null), [handleSelectAnswer])
 
    if(quizComplete){
     return (
@@ -29,6 +35,10 @@ export default function Quiz() {
   return (
    <div className={styles.quiz}>
    <div className={styles.question}>
+    <QuestionTimer key={activeQuestion}
+    timeout={10000} 
+    onTimeout={handleSkipAnswer} 
+    />
        <h2>{QUESTIONS[activeQuestion].text}</h2>
    </div>
    <ul className={styles.answers}>
