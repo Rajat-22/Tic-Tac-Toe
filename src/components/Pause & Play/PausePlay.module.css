@@ -1,9 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Handjet:wght@400;700&display=swap');
-
-* {
-  box-sizing: border-box;
-} */
-
 .body {
   margin-top: 4rem;
   font-family: 'Quicksand', sans-serif;
@@ -219,5 +213,141 @@
   }
   100% {
     opacity: 0.5;
+  }
+}
+
+/* Responsive Styles */
+
+/* For tablets */
+@media (max-width: 768px) {
+  .content {
+    max-width: 90%;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+  }
+
+  .h1 {
+    font-size: 2.8rem;
+  }
+
+  .headerP {
+    font-size: 1.1rem;
+  }
+
+  .challenges {
+    max-width: 100%;
+    margin: 2rem auto;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .challenge {
+    width: 20rem;
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .challenge h2 {
+    font-size: 1.3rem;
+  }
+
+  .challenge button {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .player input {
+    padding: 0.3rem;
+  }
+
+  .player button {
+    padding: 0.35rem 0.8rem;
+  }
+
+  .resultModal {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .resultModal h2 {
+    font-size: 2.5rem;
+  }
+
+  .resultModal p {
+    font-size: 1.1rem;
+  }
+}
+
+/* For mobile */
+@media (max-width: 480px) {
+  .body {
+    margin-top: 3rem;
+  }
+
+  .content {
+    max-width: 95%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .h1 {
+    font-size: 2.2rem;
+  }
+
+  .headerP {
+    font-size: 1rem;
+  }
+
+  .challenges {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .challenge {
+    width: 100%;
+    max-width: 18rem;
+    padding: 1.2rem;
+    margin: 0.5rem auto;
+  }
+
+  .challenge h2 {
+    font-size: 1.2rem;
+  }
+
+  .challenge button {
+    font-size: 1rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .player input {
+    padding: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  .player button {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .resultModal {
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 6px;
+  }
+
+  .resultModal h2 {
+    font-size: 2rem;
+  }
+
+  .resultModal p {
+    font-size: 1rem;
+  }
+
+  .resultModal button {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
   }
 }
